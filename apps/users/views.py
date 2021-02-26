@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views.generic.base import View
-from apps.users.forms import LoginForm
+from apps.users.forms import LoginForm,DynamicLoginForm
 from django.contrib.auth import authenticate,logout,login
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -15,7 +15,9 @@ class LoginView(View):
     def get(self,request,*args,**kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse("index"))
-        return render(request,'login.html')
+        login_form = DynamicLoginForm()
+        return render(request,'login.html',
+                      {"login_form": login_form})
 
     def post(self,request,*args,**kwargs ):
         login_form = LoginForm(request.POST)

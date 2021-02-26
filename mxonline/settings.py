@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'xadmin.apps.XAdminConfig',
     'DjangoUeditor',
+    'captcha',
 ]
 
 MIDDLEWARE = [
