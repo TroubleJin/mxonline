@@ -9,7 +9,7 @@ from django.urls import reverse
 class LogoutView(View):
     def get(self,requset,*args,**kwargs):
         logout(requset)
-        return HttpResponseRedirect(reverse('login'))
+        return HttpResponseRedirect(reverse('index'))
 
 class LoginView(View):
     def get(self,request,*args,**kwargs):
